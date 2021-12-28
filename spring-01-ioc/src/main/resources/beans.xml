@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="DaoImpl" class="com.reliable.dao.UserDaoImpl"></bean>
+    <bean id="MysqlImpl" class="com.reliable.dao.UserDaoMysqlImpl"></bean>
+    <bean id="OracleImpl" class="com.reliable.dao.UserDaoOracleImpl"></bean>
+
+    <bean id="ServiceImpl" class="com.reliable.service.UserServiceImpl">
+        <!--
+         ref 是引用spring中已经创建好的 对象
+         value：是具体的值，基本数据类型
+         IOC对象由Spring创建，管理以及装配
+        -->
+        <property name="userDao" ref="OracleImpl"/>
+    </bean>
+</beans>

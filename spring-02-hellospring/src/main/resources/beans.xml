@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+    类型 变量名 = new 类型();
+    Hello hello = new Hello();
+
+    bean就是java对象 , 由Spring创建和管理
+    bean = 一个对象
+    其中
+    id = 变量名
+    class = new的对象类型
+    property相当于给对象里的属性设置一个值
+    -->
+    <bean id="Hello" class="com.reliable.pojo.Hello">
+        <property name="name" value="Spring"/>
+    </bean>
+     <!--无参 -->
+    <!--<bean id="com.reliable.y.User" class="com.reliable.pojo.com.reliable.y.User">
+        <property name="name" value="靠谱"></property>
+    </bean>-->
+    <!--有参第一种，index-->
+    <!--<bean id="com.reliable.y.User" class="com.reliable.pojo.com.reliable.y.User" >
+        <constructor-arg index="0" value="靠谱杨"></constructor-arg>
+    </bean>-->
+     <!--2 类型-->
+   <!-- <bean id="com.reliable.y.User" class="com.reliable.pojo.com.reliable.y.User" >
+        <constructor-arg type="java.lang.String" value="靠谱杨"></constructor-arg>
+    </bean>-->
+    <!-- 3 参数名字 使用constructor-arg标签-->
+    <bean id="com.reliable.y.User" class="com.reliable.pojo.com.reliable.y.User" name="new_user1,new_user2;new_user3">
+        <constructor-arg name="name" value="com.reliable.y.User"></constructor-arg>
+    </bean>
+    <bean id="User1" class="com.reliable.pojo.User1" scope="singleton">
+        <constructor-arg name="name" value="User1"></constructor-arg>
+    </bean>
+    <!--别名 一对一 如果添加的别名 都可以使用-->
+    <alias name="com.reliable.y.User" alias="new_user"></alias>
+    <!--import -->
+    <!--<import resource="../../../../beans1.xml"></import>-->
+</beans>
